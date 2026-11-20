@@ -1,0 +1,17 @@
+{
+  "name": "Cachorro Rebelde Aventura",
+  "short_name": "Cachorro Rebelde",
+  "start_url": "./adventure.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#101a1c",
+  "theme_color": "#101a1c",
+  "icons": [
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
