@@ -1,32 +1,15 @@
-# Cachorro Rebelde no Telegram
+# Cachorro Rebelde Aventura
 
-O jogo continua estático: não precisa de servidor, banco de dados, ranking nem token de bot. A pontuação só existe durante a partida. Os sprites transparentes do personagem estão em `assets/dog-run-sheet.png` (quatro quadros de corrida) e `assets/dog-jump.png` (salto/desvio).
+Aventura em labirintos com 15 cenários. Encontre os ossos para abrir a saída, cave a terra e enfrente os predadores. Use as setas na tela ou no teclado para movimentar o cachorro; use **CAVAR**, a tecla **E** ou espaço para cavar. Os predadores se movimentam somente quando o cachorro consegue andar.
 
-## Prévia local
+O progresso é salvo automaticamente no armazenamento do navegador deste dispositivo, incluindo fase, ossos, mapas modificados, pontuação, vidas e predadores. Ao recarregar, escolha **CONTINUAR**. Limpar os dados do navegador, usar outro navegador ou dispositivo, ou bloquear o armazenamento local pode impedir a recuperação; não há sincronização em nuvem.
 
-Nesta versão de revisão, nenhuma publicação é necessária. Na pasta do projeto, execute `python3 -m http.server 4173` e abra `http://localhost:4173`. Mantenha a pasta `assets` junto do arquivo `index.html`.
+## Abrir localmente
 
-## 1. Publicar grátis com GitHub Pages
+Na pasta deste projeto, execute `python3 -m http.server 4173` e acesse `http://localhost:4173/`. A página principal `index.html` abre o jogo do labirinto. `adventure.html` também abre a mesma aventura. O site é estático e não precisa de servidor de jogo, banco de dados ou token de bot.
 
-1. Crie um repositório no GitHub ou use um que já exista. Coloque `index.html` na raiz e envie as alterações para a branch principal (geralmente `main`). O backup é opcional para a publicação.
-2. No repositório, abra **Settings → Pages**.
-3. Em **Build and deployment**, selecione **Deploy from a branch**; escolha a branch `main` e a pasta `/(root)`, e salve.
-4. Aguarde o deploy. A URL costuma ser `https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/`. Confirme que ela abre com `https://` e que o jogo aparece antes de configurar o bot.
+## Testes
 
-O GitHub pode levar alguns minutos para publicar. Veja o [guia oficial do GitHub Pages](https://docs.github.com/en/pages/quickstart).
+Execute `npm test` para verificar a lógica da campanha, movimentos, itens, portais e salvamento.
 
-## 2. Criar/configurar o bot e o botão “🎮 Jogar”
-
-1. No Telegram, abra **@BotFather** e envie `/newbot` se ainda não tiver bot. Siga as instruções de nome e usuário. Não coloque o token do bot no HTML, no repositório ou no chat.
-2. Para o botão no chat, envie `/setmenubutton`, escolha o bot, informe o texto `🎮 Jogar` e cole a URL HTTPS do GitHub Pages.
-3. Se quiser também o botão destacado **Launch app** no perfil do bot, abra `/mybots → seu bot → Bot Settings → Configure Mini App` no BotFather, habilite/configure a Mini App e use a mesma URL HTTPS.
-
-A integração usa o SDK oficial `telegram-web-app.js`, chama `ready()` e `expand()` quando o jogo abre no Telegram e ajusta as cores da barra do app. Consulte a [documentação oficial de Mini Apps](https://core.telegram.org/bots/webapps).
-
-## 3. Testar no Android
-
-1. Abra o bot no aplicativo Telegram e toque em **🎮 Jogar**.
-2. Toque em **COMEÇAR A JOGAR**. O campo “Comando em digitação” abre o teclado virtual; digite as letras da palavra mostrada sobre o alvo.
-3. Confirme que o obstáculo é desviado, drones são atacados, cristais são coletados, a pontuação atualiza e os botões pausar/continuar/recomeçar respondem.
-
-O jogo também continua abrindo como uma página web normal fora do Telegram. Para a publicação final, falta apenas conhecer o repositório GitHub e ter acesso de escrita a ele; nenhum token do bot é necessário para esta etapa.
+O arquivo `manifest.json` e o ícone 512 × 512 preparam a identificação do app, mas a criação do aplicativo Android e a publicação na Play Store são etapas separadas.

@@ -1,7 +1,7 @@
 {
   "name": "Cachorro Rebelde Aventura",
   "short_name": "Cachorro Rebelde",
-  "start_url": "./adventure.html",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#101a1c",
